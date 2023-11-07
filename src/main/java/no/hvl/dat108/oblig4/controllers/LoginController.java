@@ -32,7 +32,7 @@ public class LoginController {
     public String login(@RequestParam String phone, @RequestParam String password, HttpServletRequest request, RedirectAttributes ra) {
         Optional<Deltager> deltager = deltagerRepository.findById(phone);
 
-        if(deltager == null) {
+        if(deltager.isEmpty()) {
             ra.addFlashAttribute("redirectMessage", "Ugyldig brukernavn");
             return "redirect:" + LOGIN_URL;
         }

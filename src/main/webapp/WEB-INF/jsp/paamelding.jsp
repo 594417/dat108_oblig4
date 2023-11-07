@@ -1,7 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="no">
 <head>
-    <link href="css/simple.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
     <!-- <script src="js/myscript.js" defer></script>  -->
     <title>Påmelding</title>
 </head>
