@@ -37,6 +37,8 @@ public class LoginController {
             return "redirect:" + LOGIN_URL;
         }
 
+        // TODO: CHECK PASSWORD HERE BEFORE RETURNING USER
+
         return "redirect:" + PARTICIPANTS_URL;
     }
 }
