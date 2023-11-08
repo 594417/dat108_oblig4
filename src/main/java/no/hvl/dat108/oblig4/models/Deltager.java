@@ -13,6 +13,9 @@ public class Deltager {
     public String etternavn;
     public String kjonn;
 
+    public Deltager (){
+
+    }
     public Deltager (String mobil, String hash, String salt, String fornavn, String etternavn, String kjonn){
         this.mobil = mobil;
         this.hash = hash;

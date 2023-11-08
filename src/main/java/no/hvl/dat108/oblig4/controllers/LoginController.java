@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/${app.url.login}")
 public class LoginController {
-    @Value("${app.url.participants}") private String PARTICIPANTS_URL;
+    @Value("${app.url.registered}") private String REGISTERED_URL;
     @Value("${app.url.login}") private String LOGIN_URL;
 
     @Autowired
@@ -52,6 +52,6 @@ public class LoginController {
             ra.addFlashAttribute("redirectMessage", "Ugyldig passord");
             return "redirect:" + LOGIN_URL;
         }
-        return "redirect:" + PARTICIPANTS_URL;
+        return "redirect:" + REGISTERED_URL;
     }
 }
