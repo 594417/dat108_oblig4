@@ -1,8 +1,11 @@
 package no.hvl.dat108.oblig4.controllers;
 
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import no.hvl.dat108.oblig4.models.Deltager;
 import no.hvl.dat108.oblig4.repositories.DeltagerRepository;
+import no.hvl.dat108.oblig4.services.PasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -23,13 +26,15 @@ public class LoginController {
     @Autowired
     private DeltagerRepository deltagerRepository;
 
+    private PasswordService passwordService = new PasswordService();
+
     @GetMapping
     public String serveLogin() {
         return "innlogging";
     }
 
     @PostMapping
-    public String login(@RequestParam String phone, @RequestParam String password, HttpServletRequest request, RedirectAttributes ra) {
+    public String login(@RequestParam String phone, @RequestParam String password, HttpServletRequest request, HttpServletResponse response, RedirectAttributes ra) {
         Optional<Deltager> deltager = deltagerRepository.findById(phone);
 
         if(deltager.isEmpty()) {
@@ -37,8 +42,16 @@ public class LoginController {
             return "redirect:" + LOGIN_URL;
         }
 
-        // TODO: CHECK PASSWORD HERE BEFORE RETURNING USER
-
+        if(passwordService.erKorrektPassord(password, deltager.get().salt, deltager.get().hash)){
+            ra.addFlashAttribute("redirectMessage", deltager);
+            Cookie c = new Cookie ("user-id", phone);
+            c.setAttribute("name", deltager.get().fornavn + " " + deltager.get().etternavn);
+            c.setMaxAge(60);
+            response.addCookie(c);
+        } else {
+            ra.addFlashAttribute("redirectMessage", "Ugyldig passord");
+            return "redirect:" + LOGIN_URL;
+        }
         return "redirect:" + PARTICIPANTS_URL;
     }
 }

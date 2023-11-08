@@ -14,22 +14,22 @@
     <fieldset>
 
         <label>Fornavn</label>
-        <input type="text" name="fornavn" value="Lars" />
+        <input id="firstName" type="text" name="firstName" value="Lars" />
 
         <label>Etternavn</label>
-        <input type="text" name="etternavn" value="Larsen" />
+        <input type="text" name="lastName" id="lastName" value="Larsen" />
 
         <label>Mobil (8 siffer)</label>
-        <input type="text" name="mobil" value="1234" />
+        <input type="text" name="phone" id="phone" value="1234" />
 
         <label>Passord</label>
-        <input type="password" name="passord" />
+        <input type="password" id="password" name="password" />
         <label>Passord repetert</label>
-        <input type="password" name="passordRepetert" />
+        <input type="password" id="repeatPassword" name="repeatPassword" />
 
         <label>Kjønn</label>
-        <input type="radio" name="kjonn" value="mann" checked="checked" />mann
-        <input type="radio" name="kjonn" value="kvinne" />kvinne
+        <input type="radio" name="gender" id="gender" value="mann" checked="checked" />mann
+        <input type="radio" name="gender" id="gender" value="kvinne" />kvinne
 
         <br><br><button type="submit">Meld meg på</button>
     </fieldset>
