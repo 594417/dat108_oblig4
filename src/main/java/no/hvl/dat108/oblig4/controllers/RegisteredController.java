@@ -29,14 +29,6 @@ public class RegisteredController {
         System.out.println(model.addAttribute("deltager", deltagerRepository.findById(userid).get()));
         return "paameldt";
     }
-    @PostMapping
-    public String registered(HttpSession session, RedirectAttributes ra){
-        if (LoginUtil.erBrukerInnlogget(session)) {
-
-        }
-        ra.addFlashAttribute("redirectMessage", "Du er logget ut");
-        return "redirect:" + LOGIN_URL;
-    }
 
 }
 
