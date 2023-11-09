@@ -32,7 +32,12 @@ public class ParticipantsController {
     private DeltagerRepository deltagerRepository;
 
     @GetMapping
-    public String serveParticipants(@CookieValue(name = "user-id")String userid, Model model) {
+    public String serveParticipants(@CookieValue(name = "user-id", required = false)String userid, Model model, RedirectAttributes ra) {
+        if (userid == null) {
+            ra.addFlashAttribute("loginMessage", "Du må være logget inn for å se deltagere");
+            return "redirect:innlogging";
+        }
+
         Optional<Deltager> deltager = deltagerRepository.findById(userid);
 
         if (!deltager.isPresent()) {
