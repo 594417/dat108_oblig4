@@ -45,8 +45,7 @@ public class LoginController {
         if(passwordService.erKorrektPassord(password, deltager.get().salt, deltager.get().hash)){
             ra.addFlashAttribute("redirectMessage", deltager);
             Cookie c = new Cookie ("user-id", phone);
-            c.setAttribute("name", deltager.get().fornavn + " " + deltager.get().etternavn);
-            c.setMaxAge(60);
+            c.setMaxAge(3600);
             response.addCookie(c);
         } else {
             ra.addFlashAttribute("redirectMessage", "Ugyldig passord");

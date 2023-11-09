@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,47 +9,32 @@
     <title>Deltagerliste</title>
 </head>
 <body>
-<p>Innlogget som: 90123456 / Arne Arnesen</p>
+<p>Innlogget som: ${deltager.mobil} / ${deltager.fornavn} ${deltager.etternavn}</p>
 <h2>Deltagerliste</h2>
 <table>
     <tr>
         <th>Kjønn</th>
-        <th align="left">Navn</th>
-        <th align="left">Mobil</th>
+        <th>Navn</th>
+        <th>Mobil</th>
     </tr>
-    <tr style=>
-        <td align="center">&#9792;</td>
-        <td>Anne Panne</td>
-        <td>234 56 789</td>
-    </tr>
-
-    <tr style=background-color:#aaffaa;>
-        <td align="center">&#9794;</td>
-        <td>Arne Arnesen</td>
-        <td>901 23 456</td>
-    </tr>
-
-    <tr style=>
-        <td align="center">&#9794;</td>
-        <td>Lars-Petter Helland</td>
-        <td>123 45 679</td>
-    </tr>
-
-    <tr style=>
-        <td align="center">&#9794;</td>
-        <td>Per Viskelær</td>
-        <td>345 34 534</td>
-    </tr>
-
-    <tr style=>
-        <td align="center">&#9792;</td>
-        <td>Xx-x Xxx</td>
-        <td>123 21 378</td>
-    </tr>
+    <c:forEach items="${deltagere}" var="valgtDeltager">
+        <tr <c:if test="${valgtDeltager.mobil == deltager.mobil}">style="background-color: green"</c:if>>
+            <c:choose>
+                <c:when test="${valgtDeltager.kjonn=='mann'}">
+                    <td>&#9794;</td>
+                </c:when>
+                <c:otherwise>
+                    <td>&#9792;</td>
+                </c:otherwise>
+            </c:choose>
+            <td>${valgtDeltager.fornavn} ${valgtDeltager.etternavn}</td>
+            <td>${valgtDeltager.mobil}</td>
+        </tr>
+    </c:forEach>
 
 </table>
 <br>
-<form action="utlogging" method="post">
+<form method="post">
     <button type="submit">Logg ut</button>
 </form>
 </body>

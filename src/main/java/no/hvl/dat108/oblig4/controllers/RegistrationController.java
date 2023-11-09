@@ -40,6 +40,7 @@ public class RegistrationController {
 
         if (!InputValidator.isValidFirstName(firstName) || !InputValidator.isValidLastName(lastName) || !InputValidator.isValidPassword(password, repeatPassword) || !InputValidator.isValidKjonn(gender) || !InputValidator.isValidPhone(phone)) {
             ra.addFlashAttribute("redirectMessage", "Påmeldingsdetaljer er ugyldige");
+            System.out.println("Did not pass regex");
             return "redirect:" + REGISTRATION_URL;
         }
 
@@ -47,6 +48,7 @@ public class RegistrationController {
 
         if (eksisterendeDeltager.isPresent()) {
             ra.addFlashAttribute("redirectMessage", "Deltager med dette mobilnummeret er allerede påmeldt");
+            System.out.println("User already exists");
             return "redirect:" + REGISTRATION_URL;
         }
 

@@ -10,9 +10,9 @@
 <h2>Påmeldingsbekreftelse</h2>
 <p>Påmeldingen er mottatt for</p>
 <p>
-    &nbsp;&nbsp;&nbsp;${p.fornavn}<br />
-    &nbsp;&nbsp;&nbsp;${p.etternavn}<br />
-    &nbsp;&nbsp;&nbsp;${p.mobil}<br /> &nbsp;&nbsp;&nbsp;${p.kjonn}
+    &nbsp;&nbsp;&nbsp;${deltager.fornavn}<br />
+    &nbsp;&nbsp;&nbsp;${deltager.etternavn}<br />
+    &nbsp;&nbsp;&nbsp;${deltager.mobil}<br /> &nbsp;&nbsp;&nbsp;${deltager.kjonn}
 </p>
 <a href="deltagerliste">Gå til deltagerlisten</a>
 </body>
