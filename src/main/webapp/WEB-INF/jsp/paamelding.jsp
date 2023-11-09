@@ -9,7 +9,7 @@
 
 <body>
 <h2>Påmelding</h2>
-<p style="color:red;">Påmeldingsdetaljer er ugyldige</p>
+<p style="color:red;">${redirectMessage}</p>
 <form method="post">
     <fieldset>
 

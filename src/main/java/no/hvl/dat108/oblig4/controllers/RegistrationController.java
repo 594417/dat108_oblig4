@@ -62,7 +62,7 @@ public class RegistrationController {
         ra.addFlashAttribute("redirectMessage", deltager);
         Cookie c = new Cookie ("user-id", phone);
         c.setAttribute("name", deltager.fornavn + " " + deltager.etternavn);
-        c.setMaxAge(60);
+        c.setMaxAge(3600);
         response.addCookie(c);
 
         return "redirect:" + REGISTERED_URL;

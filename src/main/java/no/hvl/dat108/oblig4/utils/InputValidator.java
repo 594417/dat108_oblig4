@@ -1,9 +1,9 @@
 package no.hvl.dat108.oblig4.utils;
 
 public class InputValidator {
-    public static final String FIRST_NAME = "[A-Z][a-zA-Z+-+\\s]{2,19}";
-    public static final String LAST_NAME = "[A-Z][a-zA-Z+-]{2,19}";
-    public static final String PASSORD = ".{5}";
+    public static final String FIRST_NAME = "[A-Z][a-zA-ZæøåÆØÅ+-+\\s]{2,19}";
+    public static final String LAST_NAME = "[A-Z][a-zA-ZæøåÆØÅ+-]{2,19}";
+    public static final String PASSORD = ".{5,}";
     public static final String NUMBER = "[0-9]{8}";
     public static final String GENDER = "(mann|kvinne)";
 

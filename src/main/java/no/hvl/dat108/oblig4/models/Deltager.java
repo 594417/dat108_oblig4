@@ -25,6 +25,29 @@ public class Deltager {
         this.kjonn = kjonn;
     }
 
+    public String getMobil(){
+        return mobil;
+    }
+    public String getHash(){
+        return hash;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
+
+    public String getFornavn() {
+        return fornavn;
+    }
+
+    public String getEtternavn() {
+        return etternavn;
+    }
+
+    public String getKjonn() {
+        return kjonn;
+    }
+
     public void setMobil(String mobil){
         this.mobil = mobil;
     }

@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>Logg inn</h2>
-<p style="color:red;">Du er logget ut</p>
+<p style="color:red;">${loginMessage}</p>
 <form method="post">
     <fieldset>
         <label for="phone">Mobil:</label> <input id="phone" type="text" name="phone" />

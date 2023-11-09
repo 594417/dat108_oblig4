@@ -20,7 +20,7 @@ import java.util.Optional;
 @Controller
 @RequestMapping("/${app.url.login}")
 public class LoginController {
-    @Value("${app.url.registered}") private String REGISTERED_URL;
+    @Value("${app.url.participants}") private String PARTICIPANTS_URL;
     @Value("${app.url.login}") private String LOGIN_URL;
 
     @Autowired
@@ -38,7 +38,7 @@ public class LoginController {
         Optional<Deltager> deltager = deltagerRepository.findById(phone);
 
         if(deltager.isEmpty()) {
-            ra.addFlashAttribute("redirectMessage", "Ugyldig brukernavn");
+            ra.addFlashAttribute("loginMessage", "Ugyldig brukernavn");
             return "redirect:" + LOGIN_URL;
         }
 
@@ -48,9 +48,9 @@ public class LoginController {
             c.setMaxAge(3600);
             response.addCookie(c);
         } else {
-            ra.addFlashAttribute("redirectMessage", "Ugyldig passord");
+            ra.addFlashAttribute("loginMessage", "Ugyldig passord");
             return "redirect:" + LOGIN_URL;
         }
-        return "redirect:" + REGISTERED_URL;
+        return "redirect:" + PARTICIPANTS_URL;
     }
 }
